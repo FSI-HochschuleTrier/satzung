@@ -12,11 +12,15 @@
 \usepackage{titlesec}
 \usepackage{enumitem} 
 \usepackage{ifthen}
+\usepackage{etoolbox}
 
 \definecolor{fsi}{RGB}{0,81,150}
 
+\newcounter{paragraphcounter}
+\preto{\subsection}{\stepcounter{paragraphcounter}}
+
 \renewcommand\thesection{\Alph{section}}
-\renewcommand\thesubsection{\S \ \arabic{subsection}}
+\renewcommand\thesubsection{\S \ \arabic{paragraphcounter}}
 
 
 \begin{document}
