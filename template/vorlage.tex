@@ -1,0 +1,106 @@
+\documentclass[a4paper, 11pt]{article} % das Papierformat zuerst
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, top=25mm, left=35mm, right=25mm, bottom=25mm}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage[ngerman]{babel} %deutsche Silbentrennung
+\usepackage{titlesec}
+\usepackage{enumitem} 
+\usepackage{ifthen}
+
+\definecolor{fsi}{RGB}{0,81,150}
+
+\newcommand{\abstimmung}[4]{
+	\newcounter{summe}
+	\setcounter{summe}{#3}
+	\addtocounter{summe}{#4}
+	\begin{flushleft}
+		#1\\
+	Es wird über den Antrag abgestimmt.
+	\end{flushleft}
+	\ifthenelse{\equal{#3}{0}\AND\equal{#4}{0}}{
+	\begin{center}
+		\textbf{Der Antrag wird einstimmig angenommen.}
+	\end{center}
+	}{
+	\begin{center}
+		#2 \ifthenelse{\equal{#2}{1}}{Stimme}{Stimmen} dafür, #3 \ifthenelse{\equal{#3}{1}}{Stimme}{Stimmen} dagegen, #4 \ifthenelse{\equal{#42}{1}}{Enthaltung}{Enthaltungen}\\
+		\ifthenelse{#2>\value{summe}}{
+		\textbf{Der Antrag ist somit angenommen.}
+		}{
+		\textbf{Der Antrag ist somit abgelehnt.}
+		}
+	\end{center}
+	}  
+}
+
+
+% VARIABLEN
+\newcommand{\protokoller}{Max Mustermann}
+\newcommand{\dateOfMeeting}{01. Januar 1970}
+\newcommand{\TeXer}{Martina Mustermann}
+\newcommand{\fsiPresident}{Heinz Stroustrup}
+
+
+\begin{document}
+%deckblatt start
+
+\doublespacing
+\thispagestyle{empty}
+
+\begin{center}
+\includegraphics[width=10.0cm]{../logo_faculty_computer_science.eps}
+
+\vspace*{\fill}
+{\LARGE \textbf{Protokoll der Sitzung des Fachschaftsrates \\vom \dateOfMeeting}}\\
+Fachschaftsrat Informatik\\
+Trier University of Applied Sciences\\
+\vspace{2.5cm}
+\textit{
+	Protokollführer: \textbf{\protokoller} \\
+	\LaTeX - Umsetzung von \TeXer\\
+	am \today
+}
+\vfill
+\end{center}
+
+\hspace*{-35cm}
+\textcolor{fsi}{\rule{64.9cm}{15pt}}
+\pagebreak
+ 
+\setcounter{tocdepth}{2}
+\tableofcontents 
+\pagebreak
+
+\section{Eröffnung}
+Als Protokollführer wird \protokoller~bestimmt.\\
+Der Sprecher des Fachschaftsrates \fsiPresident~eröffnet die Sitzung um 14:33 Uhr.
+\\\\
+\textbf{Es wird festgestellt, dass der Fachschaftsrat vollzählig und beschlussfähig ist.}
+\\\\
+%\\\\
+%\textbf{Es wird festgestellt, dass der %Fachschaftsrat beschlussfähig ist.}\\
+%\textbf{Es fehlen:} Karla Kollumna, Benjamin %Blümchen und Helge Schneider
+%\\\\
+Das Protokoll der letzten Sitzung wurde verlesen und genehmigt.
+%Die Genehmigung des Protokolls der letzten Sitzung wird auf die nächste Sitzung vertagt.
+
+%\abstimmung{Es wird der Antrag gestellt, Dinge zu tun}{5}{6}{2} -- {dafür}{dagegen}{enthaltungen}
+
+\pagebreak
+\section{Bestätigung des Protokolls}
+Der Sprecher des Fachschaftsrates Informatik sowie der Protokollführer dieses Protokolls bestätigen mit Ihrer Unterschrift unter diesem Protokoll, dass selbiges inhaltlich korrekt ist und alle darin aufgeführten Beschlüsse so wie beschrieben vom Rat getragen werden.
+\\
+
+\vspace{3.5cm}
+\hrulefill \hfill \hrulefill
+
+\fsiPresident \hfill \TeXer
+
+{\footnotesize (Sprecher)\hfill (Protokollführer)}
+\end{document}
