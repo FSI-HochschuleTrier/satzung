@@ -25,6 +25,7 @@
 \RequirePackage{eurosym}
 
 \definecolor{fsi}{RGB}{0,81,150}
+\definecolor{lichtgrau}{RGB}{180,180,180}
 
 \newcounter{paragraphcounter}
 \preto{\subsection}{\stepcounter{paragraphcounter}}
@@ -51,7 +52,9 @@
 		\vspace{5mm}
 		{\Huge \textbf{Fachschaft Informatik}}\\
 		\vspace{5mm}
-		{\Large Hochschule Trier}
+		{\Large Hochschule Trier}\\
+		\vspace{20mm}
+		\textcolor{lichtgrau}{\small Version 1.1.1}
 	\end{center}
 	\vfill
 	\begin{center}	
